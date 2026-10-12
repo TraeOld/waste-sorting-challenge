@@ -1,0 +1,22 @@
+# Build output
+backend/build/
+build/
+*.exe
+*.o
+*.obj
+*.pdb
+
+# Local run logs
+*.log
+server-out.txt
+
+# Editor and OS noise
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Python cache from the test script
+__pycache__/
+*.pyc
+
