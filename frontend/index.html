@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Waste Sorting Challenge</title>
+  <meta name="description" content="A small educational game: sort waste into four bins." />
+  <link rel="icon" href="./assets/waste/_placeholder.png" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="offline-warning" id="offline-warning" hidden>
+    <strong>This page must be served over HTTP.</strong>
+    <span>Do not open index.html by double-clicking it. Run <code>start_web.bat</code>, then open
+      <code>http://localhost:5500</code>.</span>
+  </div>
+
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7.5 4.5 4 10h7z" />
+            <path d="M9 10h9.5a2 2 0 0 1 1.7 3l-1.6 2.7" />
+            <path d="M6.5 15.5a2 2 0 0 0 1.7 3H12" />
+            <path d="M14.2 12.6 15.6 15l-2.7 1.4" />
+          </svg>
+        </span>
+        <span class="brand-text">Waste Sorting Challenge</span>
+      </div>
+      <div class="topbar-right">
+        <span class="mode-badge" id="mode-badge">Mock mode</span>
+      </div>
+    </header>
+
+    <main class="app" id="app">
+      <!-- ============================ HOME ============================ -->
+      <section class="screen" id="screen-home" aria-labelledby="home-title">
+        <p class="eyebrow">Sustainability &amp; Green Tech</p>
+        <h1 class="home-title" id="home-title">Waste Sorting Challenge</h1>
+        <p class="home-sub">Learn recycling through play.</p>
+
+        <div class="home-grid">
+          <article class="card">
+            <h2 class="card-title">How to Play</h2>
+            <ol class="steps">
+              <li>Look at the waste item on the card.</li>
+              <li>Choose the bin you think it belongs to.</li>
+              <li>A correct answer gives <strong>10 points</strong>. A wrong answer costs
+                <strong>1 heart</strong>.</li>
+              <li>You start with <strong>3 hearts</strong>. The game ends when they run out.</li>
+            </ol>
+          </article>
+
+          <article class="card">
+            <h2 class="card-title">The Four Bins</h2>
+            <ul class="category-list" id="category-list-home"></ul>
+            <p class="disclaimer">
+              The game uses a simplified four-category waste classification system for educational
+              purposes. Always follow your local collection rules in real life.
+            </p>
+          </article>
+        </div>
+
+        <div class="home-actions">
+          <button class="btn btn-primary btn-lg" id="start-btn" type="button">START GAME</button>
+          <p class="home-note" id="home-note">24 waste items · 4 bins · 3 hearts</p>
+        </div>
+      </section>
+
+      <!-- ============================ GAME ============================ -->
+      <section class="screen" id="screen-game" aria-labelledby="game-title" hidden>
+        <h2 class="sr-only" id="game-title">Sort the waste item</h2>
+
+        <div class="hud">
+          <div class="hud-block">
+            <span class="hud-label">Score</span>
+            <span class="hud-value" id="hud-score">0</span>
+          </div>
+          <div class="hud-block hud-block--end">
+            <span class="hud-label">Health</span>
+            <div class="hearts" id="hud-health" role="img" aria-label="Health: 3 of 3"></div>
+          </div>
+        </div>
+
+        <div class="play-area">
+          <article class="waste-card">
+            <div class="waste-figure">
+              <img class="waste-image" id="waste-image" src="" alt="" width="512" height="512" />
+            </div>
+            <p class="waste-kicker" id="waste-kicker">Waste item</p>
+            <h3 class="waste-name" id="waste-name">Loading…</h3>
+            <p class="waste-prompt">Where should it go?</p>
+          </article>
+
+          <div class="answers">
+            <p class="answers-label" id="answers-label">Choose the right bin</p>
+            <div class="bin-grid" id="bin-grid" role="group" aria-labelledby="answers-label"></div>
+            <p class="keyboard-hint">Tip: press <kbd>1</kbd>&#8211;<kbd>4</kbd>, or use the arrow keys and <kbd>Enter</kbd>.</p>
+          </div>
+        </div>
+
+        <div class="feedback-layer" id="feedback-layer" hidden>
+          <div class="feedback-card" id="feedback-card">
+            <div class="feedback-head">
+              <span class="feedback-icon" id="feedback-icon" aria-hidden="true"></span>
+              <div class="feedback-heading">
+                <p class="feedback-title" id="feedback-title">Correct!</p>
+                <p class="feedback-sub" id="feedback-sub">+10 Points</p>
+              </div>
+            </div>
+
+            <p class="feedback-answer" id="feedback-answer"></p>
+
+            <div class="eco-tip">
+              <span class="eco-tip-label" id="eco-tip-label">Eco Tip</span>
+              <p class="eco-tip-text" id="feedback-tip"></p>
+            </div>
+
+            <button class="btn btn-primary" id="continue-btn" type="button" disabled>Continue</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================== RESULT =========================== -->
+      <section class="screen screen--result" id="screen-result" aria-labelledby="result-title" hidden>
+        <p class="result-kicker">GAME OVER</p>
+        <h2 class="result-title" id="result-title">Final Score</h2>
+        <p class="result-score" id="result-score">0</p>
+
+        <dl class="stats-grid">
+          <div class="stat">
+            <dt>Correct Answers</dt>
+            <dd id="stat-correct">0</dd>
+          </div>
+          <div class="stat">
+            <dt>Wrong Answers</dt>
+            <dd id="stat-wrong">0</dd>
+          </div>
+          <div class="stat">
+            <dt>Accuracy</dt>
+            <dd id="stat-accuracy">0%</dd>
+          </div>
+        </dl>
+
+        <p class="result-note" id="result-note"></p>
+
+        <div class="result-actions">
+          <button class="btn btn-primary btn-lg" id="play-again-btn" type="button">PLAY AGAIN</button>
+          <button class="btn btn-ghost" id="home-btn" type="button">Back to Home</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Week 5 · Green Tech Hackathon — frontend demo</span>
+      <span class="footer-api">API: <code id="api-endpoint">…</code></span>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast" role="alert" hidden>
+    <div class="toast-body">
+      <strong class="toast-title" id="toast-title"></strong>
+      <p class="toast-text" id="toast-text"></p>
+    </div>
+    <button class="btn btn-toast" id="toast-action" type="button" hidden></button>
+    <button class="toast-close" id="toast-close" type="button" aria-label="Dismiss message">×</button>
+  </div>
+
+  <script type="module" src="./game.js"></script>
+  <script>
+    // The game uses ES modules and fetches JSON, so it needs a real HTTP origin.
+    if (location.protocol === "file:") {
+      document.getElementById("offline-warning").hidden = false;
+    }
+  </script>
+</body>
+</html>

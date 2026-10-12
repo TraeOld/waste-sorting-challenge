@@ -1,0 +1,10 @@
+{
+  "gameId": "game-test",
+  "score": 0,
+  "health": 3,
+  "item": {
+    "id": 13,
+    "name": "Button Battery",
+    "imageKey": "button_battery"
+  }
+}

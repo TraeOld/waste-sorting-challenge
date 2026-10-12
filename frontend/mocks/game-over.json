@@ -1,0 +1,14 @@
+{
+  "correct": false,
+  "correctCategory": "other",
+  "score": 120,
+  "health": 0,
+  "ecoTip": "Used tissues belong to other waste in this game.",
+  "gameOver": true,
+  "stats": {
+    "correctAnswers": 12,
+    "wrongAnswers": 3,
+    "totalAnswers": 15,
+    "accuracy": 80
+  }
+}

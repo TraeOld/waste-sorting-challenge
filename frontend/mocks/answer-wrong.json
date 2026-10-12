@@ -1,0 +1,19 @@
+{
+  "correct": false,
+  "correctCategory": "hazardous",
+  "score": 0,
+  "health": 2,
+  "ecoTip": "Batteries should be collected separately because they may contain harmful materials.",
+  "gameOver": false,
+  "stats": {
+    "correctAnswers": 0,
+    "wrongAnswers": 1,
+    "totalAnswers": 1,
+    "accuracy": 0
+  },
+  "nextItem": {
+    "id": 7,
+    "name": "Banana Peel",
+    "imageKey": "banana_peel"
+  }
+}

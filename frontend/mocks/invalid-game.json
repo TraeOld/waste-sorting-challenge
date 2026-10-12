@@ -1,0 +1,5 @@
+{
+  "error": true,
+  "code": "INVALID_GAME_ID",
+  "message": "Game session does not exist."
+}

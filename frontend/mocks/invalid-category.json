@@ -1,0 +1,5 @@
+{
+  "error": true,
+  "code": "INVALID_CATEGORY",
+  "message": "Answer must be recyclable, kitchen, hazardous or other."
+}
