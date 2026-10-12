@@ -16,16 +16,23 @@ namespace {
 const char* kInvalidCategoryMessage =
     "Answer must be recyclable, kitchen, hazardous or other.";
 
+// httplib's set_header appends, and a browser rejects a response that carries
+// two Access-Control-Allow-Origin values ("*, *"), so each header is replaced
+// rather than added.
+void setHeader(httplib::Response& response, const char* key, const char* value) {
+    response.headers.erase(key);
+    response.set_header(key, value);
+}
+
 void applyCors(httplib::Response& response) {
-    response.set_header("Access-Control-Allow-Origin", "*");
-    response.set_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-    response.set_header("Access-Control-Allow-Headers", "Content-Type");
+    setHeader(response, "Access-Control-Allow-Origin", "*");
+    setHeader(response, "Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    setHeader(response, "Access-Control-Allow-Headers", "Content-Type");
 }
 
 void sendJson(httplib::Response& response, int status, const json& body) {
     response.status = status;
     response.set_content(body.dump(), "application/json; charset=utf-8");
-    applyCors(response);
 }
 
 void sendError(httplib::Response& response, int status, const std::string& code,
@@ -251,7 +258,6 @@ void ApiServer::handleOptions(const httplib::Request&, httplib::Response& respon
     // A preflight is never a game action.
     response.status = 204;
     response.set_content("", "text/plain");
-    applyCors(response);
 }
 
 bool ApiServer::listen(const std::string& host, int port) {

@@ -1,0 +1,28 @@
+Waste Sorting Challenge backend
+  items: 24
+  listening on http://127.0.0.1:8080/api
+  press Ctrl+C to stop
+POST /api/game/start host=127.0.0.1:8080 origin=http://localhost:5500 -> 200 allow-origin=*
+OPTIONS /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 204 allow-origin=*
+POST /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 200 allow-origin=*
+POST /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 200 allow-origin=*
+OPTIONS /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 204 allow-origin=*
+POST /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 200 allow-origin=*
+POST /api/game/start host=127.0.0.1:8080 origin=http://localhost:5500 -> 200 allow-origin=*
+OPTIONS /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 204 allow-origin=*
+POST /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 200 allow-origin=*
+POST /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 200 allow-origin=*
+POST /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 200 allow-origin=*
+POST /api/game/start host=127.0.0.1:8080 origin=http://localhost:5500 -> 200 allow-origin=*
+OPTIONS /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 204 allow-origin=*
+POST /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 200 allow-origin=*
+POST /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 200 allow-origin=*
+POST /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 200 allow-origin=*
+POST /api/game/start host=127.0.0.1:8080 origin=http://localhost:5500 -> 200 allow-origin=*
+OPTIONS /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 204 allow-origin=*
+POST /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 200 allow-origin=*
+POST /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 200 allow-origin=*
+POST /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 200 allow-origin=*
+OPTIONS /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 204 allow-origin=*
+POST /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 200 allow-origin=*
+POST /api/game/answer host=127.0.0.1:8080 origin=http://localhost:5500 -> 200 allow-origin=*
