@@ -84,12 +84,12 @@ isolation. Current status: 25 / 25 checks pass. Details are in `TEST_REPORT.md`.
 
 ## Team and contributions
 
-The group specification assigns one area per member. Confirm the names before
-submission.
+The group specification assigns one area per member. Names are added by each
+member; the remaining rows can be filled in by the rest of the team.
 
 | Member | Area | Delivered in this repository |
 | --- | --- | --- |
-| 1 | UI design and HOME screen | `frontend/style.css`, HOME screen |
+| 1 - Hu Suyang | UI design and HOME screen | `frontend/style.css`, HOME screen |
 | 2 | Game frontend and interaction | `frontend/game.js`, `frontend/index.html` |
 | 3 | Waste data and artwork | 24 items and the PNG illustrations |
 | 4 | Game logic | `backend/model/`, `backend/data/`, `backend/service/` |
